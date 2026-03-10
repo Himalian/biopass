@@ -49,7 +49,7 @@ Please visit the [release page](https://github.com/TickLabVN/biopass/releases) t
     - [ ] Voice: recognition + anti-spoofing
 - [ ] Local AI model management: User can download, update, and delete AI models for face and voice authentication methods.
 
-Feel free to request new features or report bugs by opening an issue. For contributing, please read [CONTRIBUTING.md](CONTRIBUTING.md).
+Feel free to request new features or report bugs by opening an issue. For contributing, please read [CONTRIBUTING.md](docs/contributing.md).
 
 ## Star History
 
