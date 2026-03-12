@@ -136,9 +136,7 @@ biopass/
 
 ## 4. Development Warnings and Debugging
 
-If you are modifying the C++ PAM logic, you should enable the `debug` flag in the configuration.
-1. Open the UI app and toggle **Debug Mode** to ON, or manually edit `~/.config/com.ticklab.biopass/config.yaml`.
-2. When the debug flag is enabled, detailed logs are printed, and face captures that fail authentication (or get caught spoofing) are saved as `.jpg` images to `~/.local/share/com.ticklab.biopass/debugs/`.
+When you need to modify the C++ PAM logic, we recommend you enable the `debug` flag in the configuration. You may open the UI app and toggle **Debug Mode** to ON, or manually edit `~/.config/com.ticklab.biopass/config.yaml`. When the debug flag is enabled, detailed logs are printed, and face captures that fail authentication (or get caught spoofing) are saved as `.jpg` images to `~/.local/share/com.ticklab.biopass/debugs/`.
 
 ### ⚠️ System Lockout Warnings
 
