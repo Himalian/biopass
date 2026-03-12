@@ -41,11 +41,10 @@ pub fn save_face_image(app: AppHandle, image_data: String) -> Result<String, Str
     // Run cropper
     let detect_model = app_config.methods.face.detection.model;
 
-    // Check if helper exists at the absolute path first (prod), then relative (dev)
+    // Resolve the helper from installed, development, then PATH locations.
     let helper_bin = if std::path::Path::new("/usr/local/bin/biopass-helper").exists() {
         "/usr/local/bin/biopass-helper".to_string()
     } else if std::path::Path::new("../../auth/build/pam/biopass-helper").exists() {
-        // Find relative to current dir
         "../../auth/build/pam/biopass-helper".to_string()
     } else {
         "biopass-helper".to_string()

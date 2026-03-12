@@ -44,7 +44,7 @@ To build both the C++ backend and the Tauri frontend:
 make build
 ```
 
-To easily package the application into a `.deb` file:
+To package the application into Linux release artifacts (`.deb` and `.rpm`)
 ```bash
 make package
 ```
@@ -136,14 +136,12 @@ biopass/
 
 ## 4. Development Warnings and Debugging
 
-If you are modifying the C++ PAM logic, you should enable the `debug` flag in the configuration.
-1. Open the UI app and toggle **Debug Mode** to ON, or manually edit `~/.config/com.ticklab.biopass/config.yaml`.
-2. When the debug flag is enabled, detailed logs are printed, and face captures that fail authentication (or get caught spoofing) are saved as `.jpg` images to `~/.local/share/com.ticklab.biopass/debugs/`.
+When you need to modify the C++ PAM logic, we recommend you enable the `debug` flag in the configuration. You may open the UI app and toggle **Debug Mode** to ON, or manually edit `~/.config/com.ticklab.biopass/config.yaml`. When the debug flag is enabled, detailed logs are printed, and face captures that fail authentication (or get caught spoofing) are saved as `.jpg` images to `~/.local/share/com.ticklab.biopass/debugs/`.
 
 ### ⚠️ System Lockout Warnings
 
-Editing the `/etc/pam.d/common-auth` file incorrectly may **lock you out of your system permanently**. Be extremely careful when manually testing new PAM libraries. Use one of the following methods to prevent lockout:
+Editing your distro PAM include file (typically `/etc/pam.d/common-auth` on Debian/Ubuntu or `/etc/pam.d/system-auth` on Fedora) incorrectly may **lock you out of your system permanently**. Be extremely careful when manually testing new PAM libraries. Use one of the following methods to prevent lockout:
 
 - Use a Virtual Machine: It is strongly recommended to use a Linux VM (e.g QEMU + KVM) for development. This allows you to take snapshot rollbacks if a module crashes or corrupts the PAM stack. Notice that fingerprint devices usually cannot be passed through to a virtual machine.
-- Grant write permission to the PAM file: `sudo chown $USER:root /etc/pam.d/common-auth` and `sudo chmod 644 /etc/pam.d/common-auth`.
+- Grant write permission to the PAM file you are testing, for example: `sudo chown $USER:root /etc/pam.d/common-auth` and `sudo chmod 644 /etc/pam.d/common-auth`.
 - Rescue USB: Use a rescue USB to mount the filesystem and manually fix the configuration files if you accidentally reboot into a locked system.
