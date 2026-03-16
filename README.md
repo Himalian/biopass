@@ -39,7 +39,17 @@ Biopass was developed by [@phucvinh57](https://github.com/phucvinh57) and [@thai
 
 ## Installation
 
+### For Debian/Red Hat Users
+
 Please visit the [release page](https://github.com/TickLabVN/biopass/releases) to download the newest `.deb` or `.rpm` package.
+
+### For Arch Linux Users
+
+Install from [AUR](https://aur.archlinux.org/packages/biopass-bin), for example:
+
+```bash
+yay -S biopass-bin
+```
 
 ## Features
 
